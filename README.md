@@ -12,6 +12,7 @@ git clone https://github.com/dedecastrobr/exercicios_java.git
 
 Para criar a sua branch execute:
 ```
+cd exercicios_java
 git checkout -b <SEU_NOME>
 ```
 
@@ -45,6 +46,6 @@ Estes são os projetos que iremos trabalhar. Cada um deles está em uma pasta co
 
 [bancomeu](/bancomeu): Cadastro de clientes e contas correntes de um banco;
 
-[mycar]()/mycar): Cadastro de veículos de uma loja;
+[mycar](/mycar): Cadastro de veículos de uma loja;
 
 [flextrip](/flextrip): Agência de viagens com reservas de passagens, carros e hospedagens;
