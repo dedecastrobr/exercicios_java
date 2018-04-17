@@ -45,6 +45,6 @@ Estes são os projetos que iremos trabalhar. Cada um deles está em uma pasta co
 
 [bancomeu](/bancomeu): Cadastro de clientes e contas correntes de um banco;
 
-[mycar]()/mycar): Cadastro de veículos de uma loja;
+[mycar](/mycar): Cadastro de veículos de uma loja;
 
 [flextrip](/flextrip): Agência de viagens com reservas de passagens, carros e hospedagens;
