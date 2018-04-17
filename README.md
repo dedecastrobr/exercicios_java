@@ -12,6 +12,7 @@ git clone https://github.com/dedecastrobr/exercicios_java.git
 
 Para criar a sua branch execute:
 ```
+cd exercicios_java
 git checkout -b <SEU_NOME>
 ```
 
