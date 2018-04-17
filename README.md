@@ -43,8 +43,8 @@ git push origin <SEU_NOME>
 
 Estes são os projetos que iremos trabalhar. Cada um deles está em uma pasta com um projeto do Eclipse já criado dentro dele para facilitar a importação na IDE na sua máquina. Basta importar na opção "Import an existing project from File System" e começar a trabalhar nas atividades propostas. Cada projeto tem um README.md com as especificações. Os que estiverem vazios serão adicionados posteriormente à sua brach, depois que ela estiver commitada.
 
-bancomeu[/bancomeu]: Cadastro de clientes e contas correntes de um banco;
+[bancomeu](/bancomeu): Cadastro de clientes e contas correntes de um banco;
 
-mycar[/mycar]: Cadastro de veículos de uma loja;
+[mycar]()/mycar): Cadastro de veículos de uma loja;
 
-flextrip[/flextrip]: Agência de viagens com reservas de passagens, carros e hospedagens;
+[flextrip](/flextrip): Agência de viagens com reservas de passagens, carros e hospedagens;
