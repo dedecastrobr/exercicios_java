@@ -10,7 +10,7 @@ public class BancoMeu {
 	public static List<String> opsMenuPrincipal = Arrays.asList("Clientes", "Contas");
 	public static List<String> opsMenuClientes = Arrays.asList("Cadastrar Clientes", "Consultar Clientes");
 	public static List<String> opsMenuContas = Arrays.asList("Nova Conta", "Ver Extrato", "Consultar Conta");
-
+ 
 	public static void main(String[] args) {
 		
 		System.out.println("Bem vindo ao Banco Meu");
@@ -28,6 +28,7 @@ public class BancoMeu {
 				do {
 					switch (opClientes) {
 					case 1:
+						
 						
 						break;
 
@@ -53,7 +54,5 @@ public class BancoMeu {
 			}
 			op = menu.getOption();
 		} while (op != 99);
-
 	}
-	
 }

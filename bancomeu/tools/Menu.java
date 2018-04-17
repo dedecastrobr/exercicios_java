@@ -9,6 +9,7 @@ public class Menu {
 	private String nomeMenu = "";
 	private List<String> opsMenu = new ArrayList<String>();
 	private int opSelecionada = 0;
+	private String text = "";
 
 	public static Scanner scan = new Scanner(System.in);
 
@@ -40,5 +41,9 @@ public class Menu {
 		
 		return opSelecionada;
 	}
-
+	
+	public String getTextLine() {
+		this.text = scan.nextLine();
+		return this.text;
+	}
 }
