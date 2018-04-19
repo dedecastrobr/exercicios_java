@@ -10,7 +10,7 @@ public class BancoMeu {
 	public static List<String> opsMenuPrincipal = Arrays.asList("Clientes", "Contas");
 	public static List<String> opsMenuClientes = Arrays.asList("Cadastrar Clientes", "Consultar Clientes");
 	public static List<String> opsMenuContas = Arrays.asList("Nova Conta", "Ver Extrato", "Consultar Conta");
-
+	
 	public static void main(String[] args) {
 		
 		System.out.println("Bem vindo ao Banco Meu");
@@ -27,8 +27,10 @@ public class BancoMeu {
 				int opClientes = menuClientes.getOption();
 				do {
 					switch (opClientes) {
-					case 1:
-						
+					case 0:
+						cliente.cadastroClientes();
+						break;
+					case 1:	
 						break;
 
 					default:
@@ -48,11 +50,12 @@ public class BancoMeu {
 				break;
 
 			default:
-				System.out.println("Op√ß√£o inv√°lida!");
+				System.out.println("OpÁ„o inv·lida!");
 				break;
 			}
 			op = menu.getOption();
 		} while (op != 99);
 
 	}
+	
 }
