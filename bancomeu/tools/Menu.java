@@ -24,7 +24,7 @@ public class Menu {
 		for (String string : opsMenu) {
 			System.out.println(opsMenu.indexOf(string) + " - " + string);
 		}
-		System.out.println("99 - Sair");
+		System.out.println("99 - Sair\n\n");
 
 	}
 
@@ -34,6 +34,7 @@ public class Menu {
 
 		try {
 			opSelecionada = scan.nextInt();
+			scan.nextLine();
 		} catch (Exception e) {
 			System.out.println("Erro de valor! Somente números!");
 			scan.nextLine();

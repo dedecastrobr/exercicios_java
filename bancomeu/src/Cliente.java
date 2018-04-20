@@ -8,7 +8,15 @@ public class Cliente {
 	private String nomeCliente = "";
 	private long cpfCliente = 0;
 	private List<Conta> listaContas = new ArrayList<Conta>();
-	
+		
+	public Cliente() {
+		System.out.println("Informe o nome: ");
+		this.nomeCliente = tools.Menu.scan.nextLine();
+    	System.out.println("Informe o CPF: ");
+    	this.cpfCliente = tools.Menu.scan.nextLong();
+    	tools.Menu.scan.nextLine();
+    	mostraCliente();
+	}
 	
 	public Cliente (String n, long cpf) {
 		this.nomeCliente = n;
@@ -45,8 +53,12 @@ public class Cliente {
 		this.listaContas = listaContas;
 	}
 	
+	public boolean save() {
+		BancoMeu.listaClientes.add(this);
+		return true;
+	}
 	
-	
-	
-
+	public void mostraCliente() {
+		System.out.println("Nome: "+ this.nomeCliente +"\nCPF: "+ this.cpfCliente);
+	}
 }
