@@ -1,18 +1,27 @@
 # Meu Banco
 
-Este Ã© o sistema de gestÃ£o bancÃ¡ria no que qual vocÃª deve trabalhar. A aplicaÃ§Ã£o deve  manter um cadastro de clientes com suas respectivas contas correntes.
+Este é o sistema de gestão bancária no que qual você deve trabalhar. A aplicação deve manter um cadastro de clientes com suas respectivas contas correntes.
  
-# InstruÃ§Ãµes
-As atividades a serem desenvolvidas serÃ£o implementadas por vocÃªs numa branch Ã  parte, conforme as instruÃµes iniciais dos exercÃ­cios. As respostas descritivas podem ser adicionadas ao final desde de Readme que pode ser editado no prpÃ³prio Eclipse ou qualquer outro editor de textos.
+# Instruções
+As atividades a serem desenvolvidas serão implementadas por vocês numa branch à parte, conforme as instruções iniciais dos exercícios. As respostas descritivas podem ser adicionadas ao final desde de Readme que pode ser editado no próprio Eclipse ou qualquer outro editor de textos.
 
 
 # Tarefas
 
-VocÃª deve desenvolver as seguintes atividades:
+Você deve desenvolver as seguintes atividades:
 
-* **Sistema de Menu:** Note que a aplicaÃ§Ã£o tem um sistema genÃ©rico de menus, onde vocÃª pode criar menus apenas instanciando uma classe e passando os parÃ¢metros desejados. Explique o funcionamento dessa classe e implmente todos os menus que vocÃª necessitar utilizando ela. A aplicaÃ§Ã£o faz uso em parte dessa classe, mas precisa ser refatorada para que implemente para todas as funcionalidades desejadas.
-* **Cadastro de clientes:** Implemente um cadastro de clientes com os atributos definidos na classse.
-* **Cadastro de contas:** Implemente um cadastro de contas com os atributos definidos na classe. A conta deve **obrigatoriamente** pertencer Ã  um cliente, entÃ£o considere a possibilidade de **buscar** por um clientes antes de solicitar os dados da conta;
-* **Defeito:** Existe um defeito de implementaÃ§Ã£o na classe  Conta, no mÃ©todo de saque. VocÃª Ã© capaz de identificar o defeito? Caso sim, descreva o problema e implemente uma soluÃ§Ã£o.
-* **TransferÃªncia:** Implemente uma tranferÃªncia entre duas contas. Qual a mellhor maneira de implementar? Observe os mÃ©todos ja existentes na classe e utilize-os na sua soluÃ§Ã£o.
-* **Conta Especial:** Implemente uma nova categoria de conta chamada "especial". Essa categoria de conta possui um valor de limite a ser utilizado pelo cliente. Note que o limite deve ser considerado em operaÃ§Ãµes de saque e transferÃªncia. No caso da falta de fundos, as contas especiais podem liberar crÃ©dito atÃ© o limite estabelecido na mesma.
+* **Sistema de Menu:** Note que a aplicação tem um sistema genérico de menus, onde você pode criar menus apenas instanciando uma classe e passando os parâmetros desejados. Explique o funcionamento dessa classe e implemente todos os menus que você necessitar utilizando ela. A aplicação faz uso em parte dessa classe, mas precisa ser refatorada para que implemente para todas as funcionalidades desejadas.
+* **Cadastro de clientes:** Implemente um cadastro de clientes com os atributos definidos na classe.
+* **Cadastro de contas:** Implemente um cadastro de contas com os atributos definidos na classe. A conta deve **obrigatoriamente** pertencer a um cliente, então considere a possibilidade de **buscar** por um cliente antes de solicitar os dados da conta;
+* **Defeito:** Existe um defeito de implementação na classe Conta, no método de saque. Você é capaz de identificar o defeito? Caso sim, descreva o problema e implemente uma solução.
+* **Transferência:** Implemente uma transferência entre duas contas. Qual a melhor maneira de implementar? Observe os métodos já existentes na classe e utilize-os na sua solução.
+* **Conta Especial:** Implemente uma nova categoria de conta chamada "especial". Essa categoria de conta possui um valor de limite a ser utilizado pelo cliente. Note que o limite deve ser considerado em operações de saque e transferência. No caso da falta de fundos, as contas especiais podem liberar crédito até o limite estabelecido na mesma.
+
+--------------------------------------------------------------------------------
+
+Nome: Henrique Rosa Carvalho
+Turma: 421
+
+Respostas:
+
+- Sistema de Menu: na classe Menu, o método show() serve para organizar os números das opções do menu principal e dos submenus dos clientes e das contas, e também imprimir “99 – Sair”. O método getOption() armazena a opção digitada pelo usuário e trata possíveis erros de digitação (letras ao invés de números), e caso isto ocorra, imprime “Erro de valor! Somente números!”.

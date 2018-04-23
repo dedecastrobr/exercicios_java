@@ -9,6 +9,7 @@ public class Cliente {
 	private String nomeCliente = "";
 	private long cpfCliente = 0;
 	private List<Conta> listaContas = new ArrayList<Conta>();
+	private int indice;
 	
 	
 	public Cliente (String n, long cpf) {
@@ -46,23 +47,55 @@ public class Cliente {
 		this.listaContas = listaContas;
 	}
 	
-	public Cliente(String nomeCliente, long cpfCliente){
-		this.nomeCliente = nomeCliente;
-		this.cpfCliente = cpfCliente;
+	public int getIndice(){
+		return indice;
+	}
+	
+	public void setIndice(int indice){
+		this.indice = indice;
 	}
 	
 	public Cliente(){
 		System.out.println("Nome: ");
-    	String nomeCliente = Menu.scan.nextLine();
+    	String nomeCliente = tools.Menu.scan.nextLine();
     	this.nomeCliente = nomeCliente;
     	try{
     		System.out.println("CPF: ");
-        	this.cpfCliente = Menu.scan.nextInt();
-    		Menu.scan.nextLine();
+        	this.cpfCliente = tools.Menu.scan.nextLong();
+    		tools.Menu.scan.nextLine();
     	} catch(InputMismatchException e){
     		System.out.println("Erro de valor! Somente números!");
-			Menu.scan.nextLine(); 
+			tools.Menu.scan.nextLine(); 
     	}
+	}
+	
+	public boolean save(){
+		BancoMeu.listaClientes.add(this);
+		return true;
+	}
+	
+	public void updateCliente(){
+		String nomeCliente = "";
+		System.out.println("Novo nome: ");
+		nomeCliente = BancoMeu.scan.nextLine();
+		if(!nomeCliente.isEmpty()){
+			this.nomeCliente = nomeCliente;
+		}
+		long cpfCliente = 0;
+		System.out.println("Novo CPF: ");
+		cpfCliente = BancoMeu.scan.nextLong();
+		BancoMeu.scan.nextLine();
+		if(cpfCliente != 0){
+			this.cpfCliente = cpfCliente;
+		}		
+		System.out.println("---------------------------------");
+		System.out.println("Cliente cadastrado com sucesso!");
+		System.out.println("---------------------------------");
+	}
+	
+	public boolean update(){
+		BancoMeu.listaClientes.set(this.getIndice(), this);
+		return true;
 	}
 	
 	public void mostraDados(){
