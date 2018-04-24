@@ -13,6 +13,7 @@ public class BancoMeu {
 	public static List<String> opsMenuClientes = Arrays.asList("Cadastrar Clientes", "Consultar Clientes", "Listar Clientes");
 	public static List<String> opsMenuContas = Arrays.asList("Nova Conta", "Ver Extrato", "Consultar Conta");
 	public static ArrayList<Cliente> listaClientes = new ArrayList<Cliente>();
+	public static ArrayList<Conta> Contas = new ArrayList<Conta>();
 	public static Scanner scan = new Scanner(System.in);
 	
 	public static void main(String[] args) {
@@ -40,7 +41,7 @@ public class BancoMeu {
 							cli.updateCliente();
 						}else{
 							System.out.println("---------------------------------");
-							System.out.println("Cliente n„o encontrado!");
+							System.out.println("Cliente n√£o encontrado!");
 							System.out.println("---------------------------------");
 						}
 						break;
@@ -50,15 +51,24 @@ public class BancoMeu {
 					default:
 						break;
 					}
-					menuClientes.show();
 					opClientes = menuClientes.getOption();
-				}while (opClientes != 99);
-				
+				}while (opClientes != 99);				
 				break;
 			case 1:
 				Menu menuContas = new Menu("Contas", opsMenuContas);
 				menuContas.show();
 				
+				int opContas = menuContas.getOption();
+				do{
+					switch(opContas){
+					case 0:
+						cadastroContas(consultaClientes());
+						break;
+					default:
+						break;
+					}
+					opContas = menuContas.getOption();
+				}while(opContas != 99);				
 				break;
 			case 99:
 				System.out.println("Tchau!");
@@ -66,7 +76,7 @@ public class BancoMeu {
 				break;
 
 			default:
-				System.out.println("OpÁ„o inv·lida!");
+				System.out.println("Op√ß√£o inv√°lida!");
 				break;
 			}
 			op = menu.getOption();
@@ -90,16 +100,16 @@ public class BancoMeu {
 		}
 		
 		public static Cliente consultaClientes(){
-			long pesquisa = 0;
+			long busca = 0;
 			System.out.println("CPF do cliente: ");
-			pesquisa = Menu.scan.nextLong();
+			busca = Menu.scan.nextLong();
 			Menu.scan.nextLine();
 			System.out.println("---------------------------------");
 			System.out.println("Cliente encontrado!");
 			System.out.println("---------------------------------");
 			for(Cliente cli: listaClientes){
-				if(cli.getCpfCliente() == pesquisa){
-					cli.setIndice(listaClientes.indexOf(cli));
+				if(cli.getCpfCliente() == busca){
+					//cli.setIndice(listaClientes.indexOf(cli));
 					return cli;
 				}
 			}
@@ -112,9 +122,24 @@ public class BancoMeu {
 			int pos = 0;
 			for (Cliente cliente : listaClientes){
 				pos += 1;
-				System.out.println("N˙mero: "+ pos);
+				System.out.println("N√∫mero: "+ pos);
 				cliente.mostraDados();
 				System.out.println("---------------------------------");		
 			}
-		}	
+		}
+		
+		public static void cadastroContas(Cliente cli){
+			Conta conta = new Conta(cli);
+			if(conta != null && conta.getNumeroConta() != 0){
+				//conta.save();
+				System.out.println("---------------------------------");
+				System.out.println("Cliente cadastrado com sucesso!");
+				System.out.println("---------------------------------");
+				conta.mostraDados();
+				System.out.println("---------------------------------");
+			}else{
+				System.out.println("N√£o √© poss√≠vel criar a conta!");
+				System.out.println("Cliente nulo!");
+			}
+		}
 }

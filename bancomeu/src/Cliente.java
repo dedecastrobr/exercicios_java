@@ -3,6 +3,9 @@ package src;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
+import java.util.Scanner;
+
+import tools.Menu;
 
 public class Cliente {
 	
@@ -10,6 +13,7 @@ public class Cliente {
 	private long cpfCliente = 0;
 	private List<Conta> listaContas = new ArrayList<Conta>();
 	private int indice;
+	private Scanner scan = Menu.scan;
 	
 	
 	public Cliente (String n, long cpf) {
@@ -57,15 +61,15 @@ public class Cliente {
 	
 	public Cliente(){
 		System.out.println("Nome: ");
-    	String nomeCliente = tools.Menu.scan.nextLine();
+    	String nomeCliente = scan.nextLine();
     	this.nomeCliente = nomeCliente;
     	try{
     		System.out.println("CPF: ");
-        	this.cpfCliente = tools.Menu.scan.nextLong();
-    		tools.Menu.scan.nextLine();
+        	this.cpfCliente = scan.nextLong();
+    		scan.nextLine();
     	} catch(InputMismatchException e){
-    		System.out.println("Erro de valor! Somente números!");
-			tools.Menu.scan.nextLine(); 
+    		System.out.println("Erro de valor! Somente nÃºmeros!");
+			scan.nextLine(); 
     	}
 	}
 	

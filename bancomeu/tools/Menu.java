@@ -19,7 +19,7 @@ public class Menu {
 	}
 
 	public void show() {
-
+		System.out.println(nomeMenu);
 		for (String string : opsMenu) {
 			System.out.println(opsMenu.indexOf(string) + " - " + string);
 		}
@@ -29,13 +29,13 @@ public class Menu {
 
 	public int getOption() {
 
-		System.out.println("Digite a opção desejada: ");
+		System.out.println("Digite a opï¿½ï¿½o desejada: ");
 
 		try {
 			opSelecionada = scan.nextInt();
 			scan.nextLine();
 		} catch (Exception e) {
-			System.out.println("Erro de valor! Somente números!");
+			System.out.println("Erro de valor! Somente nï¿½meros!");
 			scan.nextLine();
 		}
 		
