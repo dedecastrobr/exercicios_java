@@ -2,19 +2,25 @@ package src;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
+
+import tools.Menu;
+
 
 public class Cliente {
 	
 	private String nomeCliente = "";
 	private long cpfCliente = 0;
-	private List<Conta> listaContas = new ArrayList<Conta>();
+	private ArrayList<Conta> listaContas = new ArrayList<Conta>();
+	private Scanner scan = Menu.scan;
 		
 	public Cliente() {
 		System.out.println("Informe o nome: ");
-		this.nomeCliente = tools.Menu.scan.nextLine();
+		this.nomeCliente = scan.nextLine();
     	System.out.println("Informe o CPF: ");
-    	this.cpfCliente = tools.Menu.scan.nextLong();
-    	tools.Menu.scan.nextLine();
+    	this.cpfCliente = scan.nextLong();
+    	scan.nextLine();
+    	BancoMeu.limpaTela();
     	mostraCliente();
 	}
 	
@@ -49,7 +55,7 @@ public class Cliente {
 	}
 
 
-	public void setListaContas(List<Conta> listaContas) {
+	public void setListaContas(ArrayList<Conta> listaContas) {
 		this.listaContas = listaContas;
 	}
 	

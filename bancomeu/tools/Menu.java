@@ -20,6 +20,8 @@ public class Menu {
 	}
 
 	public void show() {
+		
+		System.out.println("\n" + this.nomeMenu);
 
 		for (String string : opsMenu) {
 			System.out.println(opsMenu.indexOf(string) + " - " + string);
@@ -30,7 +32,7 @@ public class Menu {
 
 	public int getOption() {
 
-		System.out.println("Digite a opção desejada: ");
+		System.out.println("Digite a opção para " + nomeMenu + ": ");
 
 		try {
 			opSelecionada = scan.nextInt();

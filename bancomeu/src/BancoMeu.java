@@ -3,16 +3,17 @@ package src;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
 import tools.Menu;
 
 public class BancoMeu {
 
 	public static List<String> opsMenuPrincipal = Arrays.asList("Clientes", "Contas");
 	public static List<String> opsMenuClientes = Arrays.asList("Cadastrar Clientes", "Consultar Clientes");
-	public static List<String> opsMenuContas = Arrays.asList("Nova Conta", "Ver Extrato", "Consultar Conta");
+	public static List<String> opsMenuContas = Arrays.asList("Nova Conta", "Ver Extrato", "Consultar Conta", "Transferencia");
 	
 	public static ArrayList<Cliente> listaClientes = new ArrayList<Cliente>();
-	//public static ArrayList<Conta> listaContas = new ArrayList<Conta>();
+	public static ArrayList<Conta> listaContas = new ArrayList<Conta>();
  
 	public static void main(String[] args) {
 		
@@ -46,7 +47,7 @@ public class BancoMeu {
 						break;
 					}
 					menuClientes.show();
-					opClientes = menuClientes.getOption();
+					opClientes = (opClientes != 99) ? menuClientes.getOption() : 99;
 				}while (opClientes != 99);
 				
 				break;
@@ -58,15 +59,26 @@ public class BancoMeu {
 				int opContas = menuContas.getOption();
 				do {
 					switch (opContas) {
+					case 0:
+						limpaTela();
+						cadastraConta(buscaCliente());
+						break;
 					case 1:
+						limpaTela();
+						break;
+					case 2:
+						limpaTela();
+						listaContas();
+						break;
+					case 3:
+						limpaTela();
 						
 						break;
-
 					default:
 						break;
 					}
 					menuContas.show();
-					opContas = menuContas.getOption();
+					opContas= (opContas != 99) ? menuContas.getOption() : 99;
 				}while (opContas != 99);
 				
 				break;
@@ -79,17 +91,30 @@ public class BancoMeu {
 				System.out.println("Opção inválida!");
 				break;
 			}
+			menu.show();
 			op = menu.getOption();
-		} while (op != 99);
+		}while (op != 99);
 	}
 	
 	public static void cadastroCliente() {
 		Cliente cliente = new Cliente();
 		if (cliente != null) {
 			cliente.save();
-			System.out.println("--------------------------");
+			System.out.println("\n--------------------------");
 			System.out.println("Cliente criado com sucesso!");
-			System.out.println("--------------------------");
+			System.out.println("--------------------------\n");
+		}
+	}
+	
+	public static void cadastraConta(Cliente cli) {
+		if(cli != null) {
+			Conta cont = new Conta(cli);
+			cont.save();
+			System.out.println("\n--------------------------");
+			System.out.println("Conta criada com sucesso!");
+			System.out.println("--------------------------\n");
+		}else {
+			System.out.println("Não é possivel criar a conta!\nCliente inválido!");
 		}
 	}
 	
@@ -102,8 +127,38 @@ public class BancoMeu {
 			System.out.println("Número: "+ i);
 			i = i+1;
 			cliente.mostraCliente();
-			System.out.println("_______________________________________");
+			System.out.println("_______________________________________\n");
 		}
+	}
+	
+	public static void listaContas() {
+		limpaTela();
+		System.out.println("Contas cadastradas:");
+		System.out.println("_______________________________________");
+		int i = 1;
+		for (Conta conta : listaContas) {
+			System.out.println("Número: "+ i);
+			i = i+1;
+			conta.mostraConta();
+			System.out.println("_______________________________________\n");
+		}
+	}
+	
+	public static Cliente buscaCliente() {
+		System.out.println("Informe CPF do cliente: ");
+		long busca = 0;
+		try {
+			busca = Menu.scan.nextLong();
+			Menu.scan.nextLine();
+		} catch (Exception e) {
+			System.out.println("Erro buscando cliente!\nValor inválido!");
+		}
+		for (Cliente cli :listaClientes) {
+			if(cli.getCpfCliente() == busca) {
+				return cli;
+			}
+		}
+		return null;
 	}
 	
 	public static void limpaTela() {
