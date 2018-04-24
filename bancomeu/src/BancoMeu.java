@@ -17,7 +17,6 @@ public class BancoMeu {
 	public static List<String> opsMenuClientes = Arrays.asList("Cadastrar Clientes", "Consultar Clientes");
 	public static List<String> opsMenuContas = Arrays.asList("Nova Conta", "Ver Extrato", "Consultar Conta");
 
-	public static Scanner scan = new Scanner(System.in);
 	public static ArrayList<Cliente> listaCliente = new ArrayList<Cliente>();
 	public static ArrayList<Conta> listaConta = new ArrayList<Conta>();
 
@@ -30,26 +29,26 @@ public class BancoMeu {
 		int op = menu.getOption();
 		do {
 			switch (op) {
-			case 0:
+			case 1:
 				Menu menuClientes = new Menu("Clientes", opsMenuClientes);
 				menuClientes.show();
 				
 				int opClientes = menuClientes.getOption();
 				do {
 					switch (opClientes) {
-					case 0:
+					case 1:
 						cadCliente();
 						break;
-					case 1:
+					case 2:
 						consultaCliente();
 					default:
 						break;
 					}
-					
+				opClientes = (opClientes != 99) ? menuClientes.getOption() : 99;
 				}while (opClientes != 99);
 				
 				break;
-			case 1:
+			case 2:
 				Menu menuContas = new Menu("Contas", opsMenuContas);
 				menuContas.show();
 				
@@ -67,7 +66,7 @@ public class BancoMeu {
 		} while (op != 99);
 
 	}
-	public static void cadCliente() {
+	private static void cadCliente() {
 		Cliente cl = new Cliente();
 		if (cl != null ) {
 			cl.save();
@@ -75,16 +74,30 @@ public class BancoMeu {
 		}
 	}
 	public static Cliente consultaCliente() {
-		String consulta = "";
 		System.out.println("CPF Do cliente: ");
-        int cons = scan.nextInt();
-    	System.out.println("Cliente encontrado!");
-    	for (Cliente client : listaCliente) {
-    		if (consulta.equals(client.getCpfCliente())) {
-    			client.setIndice(listaCliente.indexOf(client));
-    			return client;
+		long cons = 0;
+		try {
+		cons = Menu.scan.nextInt();
+    	Menu.scan.nextLine();
+        }catch(Exception e) {
+        	System.out.println("Erro ao encontrar cliente");
+        	System.out.println("Valor Inválido(Somente Números)");
+        }
+		System.out.println("Cliente encontrado!");
+    	for (Cliente cli : listaCliente) {
+    		if (cli.getCpfCliente() == cons) {
+    			cli.setIndice(listaCliente.indexOf(cli));
+    			return cli;
     		}
     	}
     	return null;    	
+	}
+	public static void cadConta(Cliente cli) {
+		if(cli != null) {
+			Conta cont = new Conta(cli);
+		}else {
+			System.out.println("Não foi encontrado cliente");
+			System.out.println("Cliente nulo");
+		}
 	}
 }

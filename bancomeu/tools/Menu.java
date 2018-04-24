@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import com.sun.org.apache.xerces.internal.util.SynchronizedSymbolTable;
+
 public class Menu {
 
 	private String nomeMenu = "";
@@ -19,6 +21,8 @@ public class Menu {
 	}
 
 	public void show() {
+		
+		System.out.println(nomeMenu);
 
 		for (String string : opsMenu) {
 			System.out.println(opsMenu.indexOf(string) + " - " + string);
@@ -29,10 +33,11 @@ public class Menu {
 
 	public int getOption() {
 
-		System.out.println("Digite a opção desejada: ");
+		System.out.println("Digite a opção desejada para " + nomeMenu + ": ");
 
 		try {
 			opSelecionada = scan.nextInt();
+			scan.nextLine();
 		} catch (Exception e) {
 			System.out.println("Erro de valor! Somente números!");
 			scan.nextLine();

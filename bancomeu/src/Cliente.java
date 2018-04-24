@@ -1,8 +1,10 @@
 package src;
-
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
+import java.util.Scanner;
+
+import tools.Menu;
 
 
 public class Cliente {
@@ -11,24 +13,19 @@ public class Cliente {
 	private long cpfCliente = 0;
 	private List<Conta> listaContas = new ArrayList<Conta>();
     private int indice;
-
+    private Scanner Scan = Menu.scan;
 	
-	public Cliente (String n, long cpf) {
-		this.nomeCliente = n;
-		this.cpfCliente = cpf;
-	}
-
     public  Cliente(){
     try {	   
         System.out.println("Informe o nome do cliente: ");
-    	String n = BancoMeu.scan.nextLine();
-    	System.out.println("Informe o CPF do cliente");
-    	int c = BancoMeu.scan.nextInt();
-    	BancoMeu.scan.nextLine();
+    	String n = Scan.nextLine();
+    	System.out.println("Informe o CPF do cliente: ");
+    	long c = Scan.nextLong();
+    	Scan.nextLine();
     	this.nomeCliente = n;
     	this.cpfCliente = c;
 	}catch (InputMismatchException e) {
-		BancoMeu.scan.nextLine();
+		Menu.scan.nextLine();
 		System.out.println("Valor invalido(Somente Números)");
 		System.out.println("Falha na criação do Cliente\n");
 	}
