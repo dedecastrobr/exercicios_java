@@ -51,7 +51,15 @@ public class BancoMeu {
 			case 2:
 				Menu menuContas = new Menu("Contas", opsMenuContas);
 				menuContas.show();
-				
+				int opContas = menuContas.getOption();
+				do {
+					switch(opContas) {
+					case 1: 
+						cadConta(Cliente);
+						break;
+					case 2:
+						break;
+				}while (opContas != 99);
 				break;
 			case 99:
 				System.out.println("Tchau!");
