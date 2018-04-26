@@ -37,14 +37,14 @@ public class Conta {
 			this.saldo += valor;
 			return true;
 		} catch (Exception e) {
-			System.out.println("Erro ao efetuar depÃ³sito!");
+			System.out.println("Erro ao efetuar depósito!");
 			return false;
 		}
 	}
 	
 	public boolean trasfere(Conta destino, Double valor){
 		if((this.saque(valor)) && (destino.deposito(valor))){
-			System.out.println("TransferÃªncia OK!");
+			System.out.println("Transferência OK!");
 			return true;
 		}else{
 			System.out.println("Deu ruim!");
@@ -80,8 +80,8 @@ public class Conta {
 		this.clienteConta = clienteConta;
 	}
 	
-	public Conta(){
-		System.out.println("NÃºmero da Conta: ");
+	public Conta(Cliente cli){
+		System.out.println("Número da Conta: ");
 		try{
 	    	long numeroConta = scan.nextLong();
 	    	scan.nextLine();
@@ -90,39 +90,15 @@ public class Conta {
 	    	this.saldo = saldo;
 	    	this.numeroConta = numeroConta;
     	} catch(InputMismatchException e){
-    		System.out.println("Erro de valor! Somente nÃºmeros!");
+    		System.out.println("Erro de valor! Somente números!");
 			scan.nextLine(); 
     	}
 	}
 	
-	/*public boolean save(){
-		BancoMeu.listaClientes.add(this);
+	public boolean save(){
+		BancoMeu.listaContas.add(this);
 		return true;
 	}
-	
-	public void updateCliente(){
-		String nomeCliente = "";
-		System.out.println("Novo nome: ");
-		nomeCliente = BancoMeu.scan.nextLine();
-		if(!nomeCliente.isEmpty()){
-			this.nomeCliente = nomeCliente;
-		}
-		long cpfCliente = 0;
-		System.out.println("Novo CPF: ");
-		cpfCliente = BancoMeu.scan.nextLong();
-		BancoMeu.scan.nextLine();
-		if(cpfCliente != 0){
-			this.cpfCliente = cpfCliente;
-		}		
-		System.out.println("---------------------------------");
-		System.out.println("Cliente cadastrado com sucesso!");
-		System.out.println("---------------------------------");
-	}
-	
-	public boolean update(){
-		BancoMeu.listaClientes.set(this.getIndice(), this);
-		return true;
-	}*/
 	
 	public void mostraDados(){
 		System.out.println("Conta: " + this.numeroConta);

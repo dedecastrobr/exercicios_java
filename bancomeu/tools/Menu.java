@@ -29,13 +29,13 @@ public class Menu {
 
 	public int getOption() {
 
-		System.out.println("Digite a opï¿½ï¿½o desejada: ");
+		System.out.println("Digite a opção desejada: ");
 
 		try {
 			opSelecionada = scan.nextInt();
 			scan.nextLine();
 		} catch (Exception e) {
-			System.out.println("Erro de valor! Somente nï¿½meros!");
+			System.out.println("Erro de valor! Somente números!");
 			scan.nextLine();
 		}
 		
